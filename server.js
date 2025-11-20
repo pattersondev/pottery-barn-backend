@@ -42,7 +42,6 @@ app.get('/', (req, res) => {
     endpoints: {
       health: '/health',
       products: '/api/products',
-      scrape: '/api/products/scrape (POST)',
       productById: '/api/products/:id',
       productsByGrade: '/api/products/grade/:grade'
     }

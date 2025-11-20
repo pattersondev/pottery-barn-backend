@@ -1,26 +1,7 @@
 import express from 'express';
 import pool from '../config/database.js';
-import scrapeProducts from '../scraper.js';
 
 const router = express.Router();
-
-// POST trigger scrape (must come before /:id route)
-router.post('/scrape', async (req, res) => {
-  try {
-    console.log('Scrape endpoint called');
-    const result = await scrapeProducts();
-    res.json({
-      message: 'Scraping completed successfully',
-      ...result
-    });
-  } catch (error) {
-    console.error('Error scraping products:', error);
-    res.status(500).json({ 
-      error: 'Failed to scrape products',
-      message: error.message 
-    });
-  }
-});
 
 // GET products by grade (must come before /:id route)
 router.get('/grade/:grade', async (req, res) => {
